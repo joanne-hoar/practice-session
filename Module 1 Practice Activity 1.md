@@ -82,7 +82,7 @@ You can add or modify tests in the `src/app` directory to practice writing and r
    ```
    If any tests fail due to the changes, open the relevant spec files (e.g., `app.spec.ts`) and update the expected title or content to match your new app.
 
-### Step 7: Create Header Component
+### Step 8: Create Header Component
 Generate your first component using CLI:
 - `ng generate component shared/header`
 - Notice the generated files:
