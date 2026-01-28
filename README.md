@@ -69,6 +69,12 @@ ng lint
 
 This will analyze your code and report any issues based on the project's linting configuration. Fixing lint errors helps keep your code clean and consistent.
 
+
+## Credits
+
+Images in this project were created using Recraft AI.
+Styles were generated and refined with GitHub Copilot.
+
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
