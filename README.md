@@ -1,4 +1,9 @@
+
 # PracticeSession
+
+**Author:** Joanne!
+
+Welcome to your personalized PracticeSession project. This project demonstrates an everyday market app, showcasing how to build a modern, reusable, and scalable Angular application for real-world shopping scenarios. You'll find examples of reusable components, parent-child communication, and best practices for building a user-friendly market experience.
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.1.
 
@@ -53,6 +58,16 @@ ng e2e
 ```
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Linting the Project
+
+To check your code for style and programming errors, run the linter:
+
+```bash
+ng lint
+```
+
+This will analyze your code and report any issues based on the project's linting configuration. Fixing lint errors helps keep your code clean and consistent.
 
 ## Additional Resources
 
