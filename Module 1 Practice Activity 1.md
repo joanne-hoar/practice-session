@@ -106,11 +106,11 @@ Generate your first component using CLI:
    ```
 
 2. Add the Header to the App Template:
-  Open `src/app/app.html` and insert the header selector at the top:
-  ```html
-  <app-header></app-header>
-  <!-- ...existing content... -->
-  ```
+   Open `src/app/app.html` and insert the header selector at the top:
+   ```html
+   <app-header></app-header>
+   <!-- ...existing content... -->
+   ```
 
 ---
 
