@@ -67,7 +67,7 @@ You can add or modify tests in the `src/app` directory to practice writing and r
    ```html
    <img src="assets/your-image.png" alt="Market App" style="max-width: 100%; height: auto;" />
    ```
-   Place your image file in the `src/assets` folder.
+   Place your image file in the `public/assets` folder.
 
 3. Change the App Title:
    In `src/app/app.ts`, update the title signal or property to your preferred app name, e.g.:
