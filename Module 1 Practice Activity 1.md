@@ -52,11 +52,35 @@ Angular projects come with ESLint for code quality and style checking.
 Angular projects include unit testing setup by default.
 
 - Run the test suite:
-  - `ng test`
-- This will open a browser window and run all unit tests in the project.
+  - `ng test --no-watch`
 - Observe the test results and coverage.
 
 You can add or modify tests in the `src/app` directory to practice writing and running tests.
+
+### Step 7: Customize Your App
+
+1. Remove Default Content from `app.html`:
+   Open `src/app/app.html` and delete the placeholder content. 
+
+2. Insert Your Own Image:
+   Add an `<img>` tag to display your own image. For example:
+   ```html
+   <img src="assets/your-image.png" alt="Market App" style="max-width: 100%; height: auto;" />
+   ```
+   Place your image file in the `src/assets` folder.
+
+3. Change the App Title:
+   In `src/app/app.ts`, update the title signal or property to your preferred app name, e.g.:
+   ```typescript
+   protected readonly title = signal('Everyday Market App');
+   ```
+
+4. Re-run the Tests:
+   Run:
+   ```bash
+   ng test
+   ```
+   If any tests fail due to the changes, open the relevant spec files (e.g., `app.spec.ts`) and update the expected title or content to match your new app.
 
 ### Step 7: Create Header Component
 Generate your first component using CLI:
@@ -65,6 +89,29 @@ Generate your first component using CLI:
   - `header.ts` (standalone component)
   - `header.html` (template)
   - `header.css` (styles)
+
+#### Add the Shared Header to Your App
+1. Import the Header Component in `app.ts`:
+   Open `src/app/app.ts` and add the import:
+   ```typescript
+   import { Header } from './shared/header/header';
+   ```
+   Then, add `Header` to the `imports` array in the `@Component` decorator:
+   ```typescript
+   @Component({
+     // ...existing code...
+     imports: [RouterOutlet, Header],
+     // ...existing code...
+   })
+   ```
+
+2. Add the Header to the App Template:
+  Open `src/app/app.html` and insert the header selector at the top:
+  ```html
+  <app-header></app-header>
+  <!-- ...existing content... -->
+  ```
+
 ---
 
 **Next Steps:** Practice Activity 2 will cover creating more reusable components and `@Input`/`@Output` for component communication.
