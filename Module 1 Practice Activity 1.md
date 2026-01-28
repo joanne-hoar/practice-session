@@ -16,7 +16,7 @@ Master the Angular CLI and project structure needed for Assignment 1.
 Create a project:
 - `ng new practice-session`
 - Configuration:
-  - Routing: Yes
+  - Routing  Yes
   - Stylesheet: CSS
   - SSR: No
 
@@ -27,20 +27,12 @@ Explore the project structure:
 - `src/app/app.routes.ts` (routing file)
 - `angular.json` (project configuration)
 
-### Step 4: Create Header Component
-Generate your first component using CLI:
-- `ng generate component shared/header`
-- Notice the generated files:
-  - `header.ts` (standalone component)
-  - `header.html` (template)
-  - `header.css` (styles)
-
-### Step 5: Test Your Setup
+### Step 4: Test Your Setup
 - `ng serve`
 - Open [http://localhost:4200](http://localhost:4200)
 - Verify app loads successfully
 
-### Step 6: Practice with ESLint
+### Step 5: Practice with ESLint
 Angular projects come with ESLint for code quality and style checking.
 
 - Run the linter:
@@ -56,7 +48,7 @@ Angular projects come with ESLint for code quality and style checking.
 3. Run `ng lint` again. You should see a warning or error about the unused variable.
 4. Remove or use the variable to resolve the lint error.
 
-### Step 7: Run Unit Tests with ng test
+### Step 6: Run Unit Tests with ng test
 Angular projects include unit testing setup by default.
 
 - Run the test suite:
@@ -66,6 +58,13 @@ Angular projects include unit testing setup by default.
 
 You can add or modify tests in the `src/app` directory to practice writing and running tests.
 
+### Step 7: Create Header Component
+Generate your first component using CLI:
+- `ng generate component shared/header`
+- Notice the generated files:
+  - `header.ts` (standalone component)
+  - `header.html` (template)
+  - `header.css` (styles)
 ---
 
 **Next Steps:** Practice Activity 2 will cover creating more reusable components and `@Input`/`@Output` for component communication.
