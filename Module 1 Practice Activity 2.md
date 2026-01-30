@@ -20,28 +20,26 @@ In your practice-session project:
 - `ng generate component product-card`
 - This will display individual product information
 
-### Step 3: Set Up `@Input` in Child Component (`product-card.component.ts`)
+### Step 3: Generate an Interface for Produc info
+- `ng generate interface product`
+- This will create a data structure to hold product information
+
+### Step 3: Set Up `@Input` in Child Component (`product-card.ts`)
 ```typescript
 import { Component, Input } from '@angular/core';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-product-card',
-  standalone: true,
-  template: `
-    <div class="product-card">
-      <h3>{{ product.name }}</h3>
-      <p>{{ product.description }}</p>
-      <p>Price: ${{ product.price }}</p>
-      <button (click)="onAddToCart()">Add to Cart</button>
-    </div>
-  `
+  imports: [],
+  templateUrl: './product-card.html',
+  styleUrl: './product-card.css',
 })
-export class ProductCardComponent {
-  @Input() product: any; // Receives data from parent
-  
-  onAddToCart() {
-    // We'll emit an event in the next step
-  }
+
+export class ProductCard {
+
+  @Input() product!: Product; 
+
 }
 ```
 
