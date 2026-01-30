@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
+import { Product } from '../product';  
 
 @Component({
   selector: 'app-product-list',
@@ -8,5 +9,9 @@ import { ProductCard } from '../product-card/product-card';
   styleUrl: './product-list.css',
 })
 export class ProductList {
-  aProductName = "Can of Beans"; 
+  aProduct: Product = {
+    id: 1,
+    name: "Can of Beans",
+    image: "can-of-beans.jpg"
+  }
 }
