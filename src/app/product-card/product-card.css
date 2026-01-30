@@ -1,0 +1,15 @@
+.product-card {
+  border: 2px solid #6d4c41;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  background: linear-gradient(145deg, #f8f6f0 0%, #e8e2d5 100%);
+  box-shadow: 0 4px 8px rgba(109, 76, 65, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(109, 76, 65, 0.3);
+  border-color: #3e2723;
+}
