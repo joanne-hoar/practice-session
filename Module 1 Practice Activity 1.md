@@ -112,6 +112,8 @@ Generate your first component using CLI:
    <!-- ...existing content... -->
    ```
 
+   Customize the header with some css style etc.
+
 ---
 
 **Next Steps:** Practice Activity 2 will cover creating more reusable components and `@Input`/`@Output` for component communication.
