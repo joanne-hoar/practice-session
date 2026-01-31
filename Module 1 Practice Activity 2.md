@@ -20,34 +20,55 @@ In your practice-session project:
 - `ng generate component product-card`
 - This will display individual product information
 
-### Step 3: Generate an Interface for Produc info
+### Step 3: Generate an Interface for Product info
 - `ng generate interface product`
 - This will create a data structure to hold product information
 
-### Step 3: Set Up `@Input` in Child Component (`product-card.ts`)
+Add a properties to the interface:
+```typescript
+  id: Number;
+  name: string;
+```
+
+### Step 4: Set Up `@Input` in Child Component (`product-card.ts`)
 ```typescript
 import { Component, Input } from '@angular/core';
 import { Product } from '../product';
-
-@Component({
-  selector: 'app-product-card',
-  imports: [],
-  templateUrl: './product-card.html',
-  styleUrl: './product-card.css',
-})
-
-export class ProductCard {
-
-  @Input() product!: Product; 
-
-}
 ```
 
-### Step 4: Set Up `@Output` in Child Component
+In ProductCard class, add an instance of the interface:
+```typescript
+  @Input() product!: Product; 
+```
+
+Access in the product-card.html template like this:
+```html
+<h3>{{ product.name }}</h3>
+```
+
+### Step 5: Initialize Child from Parent Component (`product-list.ts`)
+
+```typescript
+import { ProductCard } from '../product-card/product-card';
+import { Product } from '../product';  
+```
+In ProductList class, initialize a product:
+```typescript
+  aProduct: Product = {
+    id: 1,
+    name: "Laptop"
+  };
+```
+Display in the product-list.html template:
+```html
+<app-product-card [product]="aProduct"></app-product-card>
+```
+For now, import the ProductList component into `app.ts` and display below the header component. 
+
+### Step 6: Set Up `@Output` in Child Component
 Add event emission to the child:
 ```typescript
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-// ...
 ```
 
 ### Step 5: Compose with Header, Footer, and Products-Home Components
