@@ -48,12 +48,15 @@ export class ProductCard {
 // ...existing code...  
 ```
 
-Access interface properties in the product-card.html template like this:
+Access interface properties in the product-card.html template. Display as text using iterpolation syntax like this {{}}:
 ```html
 <h3>{{ product.name }}</h3>
 ```
 
-You can add an image for your product under `public/assets` folder.
+You can add an image for your product under `public/assets` folder. Use square brackets for property binding like this []:
+```html
+<img [src]="'assets/products/' + product.image" [alt]="product.name" />
+```    
 
 ### Step 5: Initialize Child from Parent Component (`product-list.ts`)
 
@@ -96,7 +99,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 // ...existing code...
 export class ProductCard {
   // ...existing code...
-  @Output() cartEvent = new EventEmitter<Number>();
+  @Output() cartEvent = new EventEmitter<number>();
 
   // This method is invoked when the button is clicked
   onAddToCart() {
@@ -115,7 +118,7 @@ Example:
  countItems = 0;
 
   // This method is invoked when the child emits the event
-  receiveAddToCart(id: Number) {
+  receiveAddToCart(id: number) {
     this.countItems += 1;
     alert("Add item "+ id + ", Items in cart: " + this.countItems);
   }
