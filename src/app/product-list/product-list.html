@@ -1,2 +1,12 @@
-<!-- initialize a Product and connect event listener --> 
-<app-product-card [product]="aProduct" (addToCartEvent)="receiveAddToCart($event)"></app-product-card>
+<div class="products-section">
+      <h2>Products</h2>
+      <div class="products-grid">
+        @for (aProduct of allProducts; track aProduct.id) {
+          <div class="product-card">
+             <!-- initialize a Product and connect event listener --> 
+             <app-product-card [product]="aProduct" (addToCartEvent)="receiveAddToCart($event)"></app-product-card>            
+          </div>
+        }
+      </div>
+    </div>
+    
