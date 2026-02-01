@@ -1,7 +1,7 @@
 
 # Front End Frameworks: Module 1: Practice Activity 2
 
-## Reusable Components and Component Communication
+## Reusable Components, Interfaces and Component Communication
 
 ### Learning Objective
 Demonstrate how to build reusable Angular components and enable parent-child communication using `@Input` and `@Output`.
@@ -26,8 +26,10 @@ In your practice-session project:
 
 Add a properties to the interface:
 ```typescript
-  id: Number;
-  name: string;
+export interface Product {
+    id: number;
+    name: string;
+}
 ```
 
 ### Step 4: Set Up `@Input` in Child Component (`product-card.ts`)
@@ -38,7 +40,11 @@ import { Product } from '../product';
 
 In ProductCard class, add an instance of the interface:
 ```typescript
+// ...existing code...
+export class ProductCard {
+
   @Input() product!: Product; 
+// ...existing code...  
 ```
 
 Access interface properties in the product-card.html template like this:
@@ -50,21 +56,29 @@ You can add an image for your product under `public/assets` folder.
 
 ### Step 5: Initialize Child from Parent Component (`product-list.ts`)
 
+Import the child component and interface:
 ```typescript
 import { ProductCard } from '../product-card/product-card';
 import { Product } from '../product';  
 ```
+
 In ProductList class, initialize a product:
 ```typescript
+// ...existing code...  
+export class ProductList {
+  
   aProduct: Product = {
     id: 1,
     name: "Laptop"
   };
+  // ...existing code...  
 ```
-Display in the product-list.html template:
+
+Display the product card in the product-list.html template:
 ```html
 <app-product-card [product]="aProduct"></app-product-card>
 ```
+
 For now, import the ProductList component into `app.ts` and display below the header component. We will setup routing in Practice Activiy 3. 
 
 ### Step 6: Set Up `@Output` in Child Component
