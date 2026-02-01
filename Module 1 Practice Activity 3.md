@@ -12,150 +12,77 @@ Demonstrate how to implement routing, display lists with modern Angular control 
 Continue in your `practice-session` project from Activity 2.
 
 1. **Generate the Home Component:**
-  - `ng generate component home --standalone`
+  - `ng generate component pages/home-page`
 2. **Generate the Products Component:**
-  - `ng generate component products --standalone`
+  - `ng generate component pages/products-page`
 3. **Set up Routing:**
   - In `app.routes.ts`, add:
     ```typescript
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
-    { path: 'products', component: ProductsComponent },
+  import { Routes } from '@angular/router';
+  import { HomePage } from './pages/home-page/home-page';
+  import { ProductsPage } from './pages/products-page/products-page';
+
+  export const routes: Routes = [
+   { path: '', redirectTo: '/home', pathMatch: 'full' },
+   { path: 'home', component: HomePage },
+   { path: 'products', component: ProductsPage }
+  ];
     ```
 
-### Step 2: Home Page with Category Buttons
+  - Edit template for `app.html` to only display header, router-outlet and footer (move other elements to other pages). 
 
-In `home.component.ts`:
-```typescript
-import { Router } from '@angular/router';
+  - Update nav links in `header.html`:
+    ```html
+        <a class="button" routerLink="/home" routerLinkActive="activebutton">Home</a>
+        <a class="button" routerLink="/products" routerLinkActive="activebutton">Products</a>
+    ```
+- Update imports in `header.ts`:
+  ```typescript
+  import { RouterLink, RouterLinkActive } from '@angular/router';
+    // ... existing code ...
+    imports: [RouterLink, RouterLinkActive],
+    // ... existing code ...
+  ```
+- Update the styles in `header.css` to show active button etc.
 
-categories = ['Cookies', 'Drinks'];
-constructor(private router: Router) {}
-goToProducts(category: string) {
-  this.router.navigate(['/products'], { queryParams: { category } });
-}
-```
+### Step 2: Home Page
 
-In `home.component.html`:
-```html
-<h2>Welcome to the Store</h2>
-<div>
-  @for (category of categories; track category) {
-    <button (click)="goToProducts(category)">{{ category }}</button>
-  }
-</div>
-```
+Put image or message in HomePage component.
 
-### Step 3: Products Page with Add to Cart
+### Step 3: Products Page
 
-In `products.component.ts`:
-```typescript
-import { ActivatedRoute } from '@angular/router';
+Use products page to display the ProductList component.
 
-products = [
-  { name: 'Cookie A', type: 'Cookies' },
-  { name: 'Drink B', type: 'Drinks' }
-];
-cart: any[] = [];
-selectedQuantities: { [key: string]: number } = {};
-category = '';
+- Initialize a list of products in `product-list.ts`:
 
-constructor(private route: ActivatedRoute) {
-  this.route.queryParams.subscribe(params => {
-    this.category = params['category'] || '';
-  });
-}
-
-get filteredProducts() {
-  return this.category ? this.products.filter(p => p.type === this.category) : this.products;
-}
-
-addToCart(product: any) {
-  const qty = this.selectedQuantities[product.name] || 1;
-  this.cart.push({ ...product, quantity: qty });
-}
-
-submitCart() {
-  // Display or process cart
-}
-```
-
-In `products.component.html`:
-```html
-<div *ngIf="filteredProducts.length">
-  @for (product of filteredProducts; track product.name) {
-    <div>
-      <span>{{ product.name }}</span>
-      <input type="number" min="1" [(ngModel)]="selectedQuantities[product.name]" />
-      <button (click)="addToCart(product)">Add to Cart</button>
-    </div>
-  }
-  <button (click)="submitCart()">Submit Cart</button>
-</div>
-<div *ngIf="cart.length">
-  <h3>Cart</h3>
-  <ul>
-    @for (item of cart; track item.name) {
-      <li>{{ item.name }} (x{{ item.quantity }})</li>
+``` typescript
+    allProducts: Product[] = [
+    {
+      id: 1,
+      name: "Laptop"   
+    },
+    {
+      id: 2,
+      name: "Tablet"
     }
-  </ul>
-</div>
-```
-
-### Step 4: Data Service Example
-You can still create a service for products if you want to practice Angular service patterns:
-
-```typescript
-import { Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class ProductsService {
-  getProducts() {
-    return [
-      { id: 1, name: 'Laptop', category: 'Electronics', price: 999, inStock: true },
-      { id: 2, name: 'Coffee Mug', category: 'Kitchen', price: 15, inStock: false },
-      { id: 3, name: 'Book', category: 'Education', price: 25, inStock: true },
-      { id: 4, name: 'Phone', category: 'Electronics', price: 599, inStock: true }
+    // ... more products ...
     ];
-  }
-}
 ```
 
-### Step 5: Create Product List Component
+- Iterate through the products list in `product-list.html` like this:
 
-- `ng generate component product-display`
-- In `product-display.component.ts`:
-
-```typescript
-import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../services/products.service';
-
-@Component({
-  selector: 'app-product-display',
-  standalone: true,
-  template: `
-    <div class="products-container">
-      <h2>Product Catalog</h2>
-      <!-- Basic @for loop - essential for Assignment 1 -->
-      @for (product of products; track product.id) {
-        <div class="product-card">
-          <h3>{{ product.name }}</h3>
-          <p>Category: {{ product.category }}</p>
-          <p>Price: ${{ product.price }}</p>
-          <span *ngIf="product.inStock">In Stock</span>
-          <span *ngIf="!product.inStock">Out of Stock</span>
-        </div>
-      }
+```html
+<div class="products-section">
+      <h2>Products</h2>
+      <div class="products-grid">
+        @for (aProduct of allProducts; track aProduct.id) {
+          <div class="product-card">
+             <!-- initialize a Product and connect event listener --> 
+             <app-product-card [product]="aProduct" (addToCartEvent)="receiveAddToCart($event)"></app-product-card>            
+          </div>
+        }
+      </div>
     </div>
-  `
-})
-export class ProductDisplayComponent implements OnInit {
-  products = [];
-  constructor(private productsService: ProductsService) {}
-  ngOnInit() {
-    this.products = this.productsService.getProducts();
-  }
-}
 ```
 
 **Tip:** The `@for` syntax and standalone components/routes are only available in Angular 17+.
