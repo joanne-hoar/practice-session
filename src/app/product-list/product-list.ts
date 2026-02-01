@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
-import { Product } from '../product';  
+import { Product } from '../product';
+import { CartService } from '../services/cart-service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,6 +10,7 @@ import { Product } from '../product';
   styleUrl: './product-list.css',
 })
 export class ProductList {
+  cartService = inject(CartService);
   allProducts: Product[] = [
     {
       id: 1,
@@ -57,11 +59,11 @@ export class ProductList {
     }
   ];
 
-  countItems = 0;
-
   // This method is triggered when the child emits the event (see html template)
   receiveAddToCart(id: number) {
-    this.countItems += 1;
-    alert("Add item "+ id + ", Items in cart: " + this.countItems);
+    const product = this.allProducts.find(p => p.id === id);
+    if (product) {
+      this.cartService.addToCart(product);
+    }
   }
 }

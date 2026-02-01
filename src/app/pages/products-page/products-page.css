@@ -12,3 +12,17 @@
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
+.products-section p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #2d5016;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f0f7e8;
+  border-radius: 8px;
+  display: inline-block;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
