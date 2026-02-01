@@ -5,7 +5,8 @@
 ### Learning Outcome
 Demonstrate how to implement routing, display lists with modern Angular control flow, and manage data services in a single-page Angular application.
 
----
+### Prerequisites
+- Complete Practice Activity 2 (Component Communication)
 
 ### Step 1: Set Up Routing and Components
 
@@ -58,7 +59,7 @@ Continue in your `practice-session` project from Activity 2.
 
 Design the HomePage component.
 
-### Step 3: Products Page
+### Step 3: Products Page: Iterating through Products List
 
 Design products page to display the ProductList component.
 
@@ -98,8 +99,6 @@ Design products page to display the ProductList component.
 - Use styles in `product-list.css` to format a grid layout.
 
 **Tip:** The `@for` syntax and standalone components/routes are only available in Angular 17+.
-
----
 
 ### Step 4: Cart Service Demo
 
@@ -144,7 +143,7 @@ Implement a shopping cart service to manage product selections.
    ```
 
 ### Step 5: Display Cart Count
-   - In `products-page.ts`, inject the CartService:
+  - In `products-page.ts`, inject the CartService:
    
    ```typescript
    import { Component, inject } from '@angular/core';
@@ -155,13 +154,15 @@ Implement a shopping cart service to manage product selections.
    }
    ```
    
-   - Update `products-page.html` to show the cart count:
+  - Update `products-page.html` to show the cart count:
    
    ```html
     <h2>Products</h2>
     <p>Items in cart: {{ cartService.items().length }}</p>
     <app-product-list></app-product-list>
    ```
+
+  - You could also create a data service for all products data.
 
 **Key Concepts:**
 - Services with `@Injectable` provide singleton instances across the app

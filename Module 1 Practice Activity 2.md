@@ -9,8 +9,6 @@ Demonstrate how to build reusable Angular components and enable parent-child com
 ### Prerequisites
 - Complete Practice Activity 1 (Angular CLI setup)
 
----
-
 ### Step 1: Create Parent Component
 In your practice-session project:
 - `ng generate component product-list`
