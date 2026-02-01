@@ -33,6 +33,7 @@ export interface Product {
 ```
 
 ### Step 4: Set Up `@Input` in Child Component (`product-card.ts`)
+Import Input from Angular and the interface:
 ```typescript
 import { Component, Input } from '@angular/core';
 import { Product } from '../product';
