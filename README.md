@@ -7,6 +7,12 @@ Welcome to your personalized PracticeSession project. This project demonstrates 
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.1.
 
+## Practice Activities
+
+- [Module 1 Practice Activity 1](Module%201%20Practice%20Activity%201.md)
+- [Module 1 Practice Activity 2](Module%201%20Practice%20Activity%202.md)
+- [Module 1 Practice Activity 3](Module%201%20Practice%20Activity%203.md)
+
 ## Development server
 
 To start a local development server, run:
@@ -48,16 +54,6 @@ To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use th
 ```bash
 ng test
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
 ## Linting the Project
 
