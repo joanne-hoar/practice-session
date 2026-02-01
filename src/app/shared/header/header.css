@@ -1,4 +1,36 @@
 
+#header {
+    background: linear-gradient(135deg, #e7cfc3 0%, #be7d67 100%);
+    color: #f5f5dc;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+#header nav {
+    margin-bottom: 1rem;
+}
+
+#header h1 {
+    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2d5016;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.header-content {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.storefront-image {
+    max-width: 400px;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
 /* Navigation buttons with dark green and brown theme */
 .button {
     display: inline-block;

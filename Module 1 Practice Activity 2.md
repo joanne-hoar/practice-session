@@ -68,10 +68,6 @@ Display in the product-list.html template:
 For now, import the ProductList component into `app.ts` and display below the header component. We will setup routing in Practice Activiy 3. 
 
 ### Step 6: Set Up `@Output` in Child Component
-Add event emission to the child:
-```typescript
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-```
 
 Add a button to the ProductCard template. In `product-card.html`:
 ```html
@@ -79,38 +75,37 @@ Add a button to the ProductCard template. In `product-card.html`:
    <button (click)="onAddToCart()">Add to Cart</button>
 ```
 
-Add the emitting function to the ProductCard class. In `product-card.ts`:
+Define an output property with EventEmitter and emit the event with data in `product-card.ts`:
 ```typescript
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+// ...existing code...
 export class ProductCard {
   // ...existing code...
+  @Output() cartEvent = new EventEmitter<Number>();
+
+  // This method is invoked when the button is clicked
   onAddToCart() {
-    // We'll emit an event in the next step
-    alert("Add to cart clicked");
+    this.cartEvent.emit(this.product.id);
   }
 }
 ```
 ### Step 7: Listen for the Custom Event in Parent Component
 
+
+
 Example:
 ```typescript
-// parent.component.ts
-import { Component } from '@angular/core';
+// ...existing code...
+ export class ProductCard {
+ // ...existing code...
+ countItems = 0;
 
-@Component({
-  selector: 'app-parent',
-  template: `
-    <app-child (messageEvent)="receiveMessage($event)"></app-child>
-    <p>Received message: {{ receivedMessage }}</p>
-  `
-})
-export class ParentComponent {
-  receivedMessage = '';
-
-  // This method is called when the child emits the event
-  receiveMessage(message: string) {
-    this.receivedMessage = message; // Access the emitted data via the $event variable
+  // This method is invoked when the child emits the event
+  receiveAddToCart(id: Number) {
+    this.countItems += 1;
+    alert("Add item "+ id + ", Items in cart: " + this.countItems);
   }
-}```
+```
 
 ### Step 8: Compose with Header, Footer, and Products-Home Components
 

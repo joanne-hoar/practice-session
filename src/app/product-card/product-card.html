@@ -1,4 +1,9 @@
 <div class="product-card">
+    <!-- access ProductClass properties in template-->
+    <!-- square brackets [ ] for property binding -->
     <img [src]="'assets/products/' + product.image" [alt]="product.name" />
+    <!-- {{ }} syntax used for interpolation, display as text -->
     <h3>{{ product.name }}</h3>
+    <!-- button click invokes custom event handler in ProductClass -->
+    <button class="add-btn" (click)="onAddToCart()">Add to Cart</button>
 </div>

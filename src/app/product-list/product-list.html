@@ -1,1 +1,2 @@
-<app-product-card [product]="aProduct"></app-product-card>
+<!-- initialize a Product and connect event listener --> 
+<app-product-card [product]="aProduct" (addToCartEvent)="receiveAddToCart($event)"></app-product-card>
