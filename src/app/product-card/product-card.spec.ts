@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductCard } from './product-card';
+import { Product } from '../product';
 
 describe('ProductCard', () => {
   let component: ProductCard;
@@ -14,6 +15,15 @@ describe('ProductCard', () => {
 
     fixture = TestBed.createComponent(ProductCard);
     component = fixture.componentInstance;
+    
+    // Provide a mock product input
+    component.product = {
+      id: 1,
+      name: 'Test Product',
+      image: 'test.jpg'
+    } as Product;
+    
+    fixture.detectChanges();
     await fixture.whenStable();
   });
 
