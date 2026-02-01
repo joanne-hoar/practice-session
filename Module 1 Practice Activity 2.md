@@ -89,9 +89,8 @@ export class ProductCard {
   }
 }
 ```
+
 ### Step 7: Listen for the Custom Event in Parent Component
-
-
 
 Example:
 ```typescript
@@ -107,22 +106,6 @@ Example:
   }
 ```
 
-### Step 8: Compose with Header, Footer, and Products-Home Components
-
-Now, bring together your reusable layout components:
-
-- You already generated the header component in Activity 1.
-- Generate a footer component:
-  - `ng generate component shared/footer`
-- Generate the products-home component:
-  - `ng generate component products-home`
-
-In `products-home.component.html`, compose your layout:
-```html
-<app-header></app-header>
-<!-- Main content here -->
-<app-footer></app-footer>
-```
 
 This demonstrates how to compose a page from multiple reusable components, a key Angular skill.
 
