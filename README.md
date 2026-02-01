@@ -13,6 +13,10 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 - [Module 1 Practice Activity 2](Module%201%20Practice%20Activity%202.md)
 - [Module 1 Practice Activity 3](Module%201%20Practice%20Activity%203.md)
 
+## Screenshot
+
+![Market Products](screenshots/MarketProducts.png)
+
 ## Development server
 
 To start a local development server, run:
