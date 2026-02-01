@@ -124,7 +124,7 @@ Implement a shopping cart service to manage product selections.
    }
    ```
 
-  - In `product-list.ts`, import and inject the CartService:
+- In `product-list.ts`, import and inject the CartService:
    
    ```typescript
    import { Component, inject } from '@angular/core';
@@ -162,7 +162,7 @@ Implement a shopping cart service to manage product selections.
     <app-product-list></app-product-list>
    ```
 
-  - You could also create a data service for all products data.
+  - You could now create a data service for all products data, improve cart functionality/efficiency and create a view cart page.
 
 **Key Concepts:**
 - Services with `@Injectable` provide singleton instances across the app
