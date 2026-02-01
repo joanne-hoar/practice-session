@@ -1,9 +1,9 @@
 # Front End Frameworks: Module 1: Practice Activity 3
 
-## Routing, Data Iteration, and Component Interaction
+## Routing, Data Iteration, and Services
 
 ### Learning Outcome
-Demonstrate how to implement routing, display lists with modern Angular control flow, and manage component interaction in a single-page Angular application.
+Demonstrate how to implement routing, display lists with modern Angular control flow, and manage data services in a single-page Angular application.
 
 ---
 
@@ -98,6 +98,75 @@ Design products page to display the ProductList component.
 - Use styles in `product-list.css` to format a grid layout.
 
 **Tip:** The `@for` syntax and standalone components/routes are only available in Angular 17+.
+
+---
+
+### Step 4: Cart Service Demo
+
+Implement a shopping cart service to manage product selections.
+
+- `ng generate service services/cart-service`
+   
+- Create `cart-service.ts` in the services folder with:
+   
+   ```typescript
+   import { Injectable, signal } from '@angular/core';
+   import { Product } from '../product';
+
+   @Injectable({
+     providedIn: 'root',
+   })
+   export class CartService {
+     items = signal<Product[]>([]);
+
+     addToCart(product: Product): void {
+       this.items.set([...this.items(), product]);
+     }
+   }
+   ```
+
+  - In `product-list.ts`, import and inject the CartService:
+   
+   ```typescript
+   import { Component, inject } from '@angular/core';
+   import { CartService } from '../services/cart-service';
+
+   export class ProductList {
+     cartService = inject(CartService);
+
+     receiveAddToCart(id: number) {
+       const product = this.allProducts.find(p => p.id === id);
+       if (product) {
+         this.cartService.addToCart(product);
+       }
+     }
+   }
+   ```
+
+### Step 5: Display Cart Count
+   - In `products-page.ts`, inject the CartService:
+   
+   ```typescript
+   import { Component, inject } from '@angular/core';
+   import { CartService } from '../../services/cart-service';
+
+   export class ProductsPage {
+     cartService = inject(CartService);
+   }
+   ```
+   
+   - Update `products-page.html` to show the cart count:
+   
+   ```html
+    <h2>Products</h2>
+    <p>Items in cart: {{ cartService.items().length }}</p>
+    <app-product-list></app-product-list>
+   ```
+
+**Key Concepts:**
+- Services with `@Injectable` provide singleton instances across the app
+- The `inject()` function is the modern way to inject dependencies
+- Signals provide reactive state management that updates the UI automatically
 
 ---
 
