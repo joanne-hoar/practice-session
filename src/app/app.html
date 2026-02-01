@@ -1,18 +1,9 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<app-header></app-header>
-
 <main>
-  <div>
-      <h1>{{ title() }}</h1>
-      <img src="assets/cute-storefront.jpg" alt="Cute Storefront Image">
-  </div>
-</main>
-
-<app-product-list></app-product-list>
-
+<app-header [title]="title()"></app-header>
+<router-outlet></router-outlet>
 <app-footer></app-footer>
-
+</main>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<router-outlet />
+

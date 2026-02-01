@@ -24,13 +24,6 @@
     margin-top: 10px;
 }
 
-.storefront-image {
-    max-width: 400px;
-    border-radius: 8px;
-    margin-top: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
 /* Navigation buttons with dark green and brown theme */
 .button {
     display: inline-block;
