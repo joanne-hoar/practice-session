@@ -1,0 +1,14 @@
+.products-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.products-section h2 {
+  text-align: center;
+  color: #2d5016;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
