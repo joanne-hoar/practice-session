@@ -18,7 +18,7 @@ export class ProductList {
   countItems = 0;
 
   // This method is triggered when the child emits the event (see html template)
-  receiveAddToCart(id: Number) {
+  receiveAddToCart(id: number) {
     this.countItems += 1;
     alert("Add item "+ id + ", Items in cart: " + this.countItems);
   }

@@ -12,7 +12,7 @@ export class ProductCard {
 
   @Input() product!: Product; 
 
-  @Output() addToCartEvent = new EventEmitter<Number>();
+  @Output() addToCartEvent = new EventEmitter<number>();
 
   // This method is triggered on button click (see html template)
   onAddToCart() {
