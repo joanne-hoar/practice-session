@@ -1,0 +1,22 @@
+@if (product(); as prod) {
+  <div class="product-detail">
+    <div class="product-image">
+      <img [src]="'assets/products/' + prod.image" [alt]="prod.name">
+    </div>
+    
+    <div class="product-info">
+      <h1>{{ prod.name }}</h1>
+      <p class="category">Category: {{ prod.category }}</p>
+      <p class="description">{{ prod.description }}</p>
+      <div class="actions">
+        <button class="btn-back" routerLink="/products">← Back to Products</button>
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="not-found">
+    <h2>Product Not Found</h2>
+    <p>Sorry, we couldn't find a product with ID: {{ id() }}</p>
+    <button class="btn-back" routerLink="/products">← Back to Products</button>
+  </div>
+}
