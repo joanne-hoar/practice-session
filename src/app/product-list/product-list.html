@@ -1,5 +1,5 @@
-<!-- Search form component with reactive category filter -->
-<app-search-form (categoryChange)="onCategoryChange($event)"></app-search-form>
+<!-- Search form component with reactive keyword and category filters -->
+<app-search-form (searchChange)="onSearchChange($event)"></app-search-form>
 
 <div class="products-grid">
   <!-- Loop through filtered products using modern @for syntax -->

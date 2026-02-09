@@ -3,7 +3,7 @@ import { ProductCard } from '../product-card/product-card';
 import { Product } from '../product';
 import { CartService } from '../services/cart-service';
 import { ProductService } from '../services/product-service';
-import { SearchForm } from '../search-form/search-form';
+import { SearchForm, SearchCriteria } from '../search-form/search-form';
 
 @Component({
   selector: 'app-product-list',
@@ -15,20 +15,35 @@ export class ProductList {
   cartService = inject(CartService);
   productService = inject(ProductService);
   
-  // Signal to track selected category
+  // Signals to track search criteria
+  searchKeyword = signal('');
   selectedCategory = signal('');
   
-  // Computed signal - automatically recalculates when selectedCategory changes
+  // Computed signal - automatically recalculates when search criteria change
   filteredProducts = computed(() => {
+    const keyword = this.searchKeyword().toLowerCase();
     const category = this.selectedCategory();
-    return category 
+    
+    // Get products filtered by category (or all if no category)
+    let products = category 
       ? this.productService.getProductsByCategory(category)
       : this.productService.getAllProducts();
+    
+    // Further filter by keyword if provided
+    if (keyword) {
+      products = products.filter(p => 
+        p.name.toLowerCase().includes(keyword) ||
+        p.description.toLowerCase().includes(keyword)
+      );
+    }
+    
+    return products;
   });
 
-  // Called when search form emits category change
-  onCategoryChange(category: string) {
-    this.selectedCategory.set(category);
+  // Called when search form emits search criteria change
+  onSearchChange(criteria: SearchCriteria) {
+    this.searchKeyword.set(criteria.keyword);
+    this.selectedCategory.set(criteria.category);
   }
 
   // This method is triggered when the child emits the add to cart event

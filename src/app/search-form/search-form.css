@@ -5,9 +5,20 @@
   margin-bottom: 2rem;
   border: 2px solid #6d4c41;
   box-shadow: 0 4px 8px rgba(109, 76, 65, 0.2);
+}
+
+form {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.form-field {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 label {
@@ -16,6 +27,7 @@ label {
   font-size: 1rem;
 }
 
+input,
 select {
   padding: 0.6rem;
   border: 2px solid #6d4c41;
@@ -23,12 +35,38 @@ select {
   font-size: 1rem;
   background: rgba(255, 255, 255, 0.8);
   color: #2d5016;
-  cursor: pointer;
-  min-width: 200px;
+  transition: all 0.3s ease;
 }
 
+input {
+  width: 100%;
+}
+
+select {
+  cursor: pointer;
+}
+
+/* Valid state */
+input:focus,
 select:focus {
   outline: none;
   border-color: #4a5d23;
   box-shadow: 0 2px 6px rgba(74, 93, 35, 0.2);
+}
+
+/* Invalid state when touched */
+input.ng-invalid.ng-touched {
+  border-color: #d32f2f;
+}
+
+/* Error messages styling */
+.error-messages {
+  margin-top: 0.25rem;
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  margin: 0.25rem 0;
+  font-weight: 600;
 }
