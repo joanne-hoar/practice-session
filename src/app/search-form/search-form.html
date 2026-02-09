@@ -1,0 +1,10 @@
+<div class="search-form">
+  <label for="category">Filter by Category:</label>
+  <!-- Reactive form control binding using [formControl] directive -->
+  <select id="category" [formControl]="categoryControl">
+    <option value="">All Categories</option>
+    <option value="grocery">Grocery</option>
+    <option value="clothing">Clothing</option>
+    <option value="stationary">Stationary</option>
+  </select>
+</div>

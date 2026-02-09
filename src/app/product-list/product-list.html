@@ -1,10 +1,12 @@
+<!-- Search form component with reactive category filter -->
+<app-search-form (categoryChange)="onCategoryChange($event)"></app-search-form>
 
-      <div class="products-grid">
-        @for (aProduct of allProducts; track aProduct.id) {
-          <div class="product-card">
-             <!-- initialize a Product and connect event listener --> 
-             <app-product-card [product]="aProduct" (addToCartEvent)="receiveAddToCart($event)"></app-product-card>            
-          </div>
-        }
-      </div>
-    
+<div class="products-grid">
+  <!-- Loop through filtered products using modern @for syntax -->
+  @for (aProduct of filteredProducts(); track aProduct.id) {
+    <div class="product-card">
+       <!-- Pass product data and listen for add to cart event --> 
+       <app-product-card [product]="aProduct" (addToCartEvent)="receiveAddToCart($event)"></app-product-card>            
+    </div>
+  }
+</div>
