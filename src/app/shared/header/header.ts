@@ -9,6 +9,10 @@ import { CartService } from '../../services/cart-service';
   styleUrl: './header.css',
 })
 export class Header {
+  // @Input: Receives the title text from parent component (App)
   @Input() title!: string;
+  
+  // Inject cart service to display live cart count in navigation
+  // The computed signal itemCount() will automatically update the UI
   cartService = inject(CartService);
 }

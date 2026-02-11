@@ -2,9 +2,12 @@ import { Injectable, signal } from '@angular/core';
 import { Product } from '../product';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root', // Singleton service available app-wide
 })
 export class ProductsDataService {
+  // Signal containing all product data - centralized data source
+  // Using a signal makes this reactive: any component reading this
+  // will automatically update if the products change
   products = signal<Product[]>([
     {
       id: 1,
@@ -53,6 +56,8 @@ export class ProductsDataService {
     }
   ]);
 
+  // Helper method to find a product by ID
+  // Returns undefined if product not found (type-safe with optional chaining)
   getProductById(id: number): Product | undefined {
     return this.products().find(p => p.id === id);
   }
