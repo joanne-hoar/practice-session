@@ -24,20 +24,26 @@ export class SearchForm {
     category: new FormControl('')
   });
   
-  // Output event to notify parent when search criteria changes
+  // Output event to notify parent when search button is clicked
   searchChange = output<SearchCriteria>();
 
-  constructor() {
-    // Subscribe to form value changes
-    this.searchForm.valueChanges.subscribe(value => {
-      // Only emit if keyword is valid or empty
-      const keyword = this.searchForm.get('keyword');
-      if (keyword?.valid || keyword?.value === '') {
-        this.searchChange.emit({
-          keyword: value.keyword || '',
-          category: value.category || ''
-        });
-      }
+  // Called when user clicks the Search button
+  onSearch() {
+    // Only emit if form is valid
+    if (this.searchForm.valid) {
+      this.searchChange.emit({
+        keyword: this.searchForm.value.keyword || '',
+        category: this.searchForm.value.category || ''
+      });
+    }
+  }
+
+  // Called when user clicks the Clear button
+  onClear() {
+    this.searchForm.reset();
+    this.searchChange.emit({
+      keyword: '',
+      category: ''
     });
   }
 }

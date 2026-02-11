@@ -11,6 +11,7 @@ form {
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .form-field {
@@ -19,6 +20,13 @@ form {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+  padding-top: 1.65rem;
 }
 
 label {
@@ -69,4 +77,51 @@ input.ng-invalid.ng-touched {
   font-size: 0.85rem;
   margin: 0.25rem 0;
   font-weight: 600;
+}
+
+/* Button styling */
+button {
+  padding: 0.6rem 1.5rem;
+  border: 2px solid #6d4c41;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-search {
+  background: linear-gradient(145deg, #4a5d23 0%, #2d5016 100%);
+  color: #f5f5dc;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.btn-search:hover:not(:disabled) {
+  background: linear-gradient(145deg, #5d7a2f 0%, #3e6b1f 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(74, 93, 35, 0.3);
+}
+
+/* Disabled button state - shows when form is invalid */
+.btn-search:disabled {
+  background: linear-gradient(145deg, #9e9e9e 0%, #757575 100%);
+  color: #e0e0e0;
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+.btn-clear {
+  background: linear-gradient(135deg, #8d6e63 0%, #6d4c41 100%);
+  color: #f5f5dc;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.btn-clear:hover {
+  background: linear-gradient(135deg, #795548 0%, #5d4037 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(109, 76, 65, 0.3);
 }

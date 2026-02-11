@@ -34,5 +34,23 @@
         <option value="stationary">Stationary</option>
       </select>
     </div>
+
+    <div class="form-actions">
+      <!-- Search button - disabled when form is invalid -->
+      <button 
+        type="button" 
+        class="btn-search" 
+        (click)="onSearch()"
+        [disabled]="searchForm.invalid">
+        Search
+      </button>
+      <!-- Clear button - always enabled -->
+      <button 
+        type="button" 
+        class="btn-clear" 
+        (click)="onClear()">
+        Clear
+      </button>
+    </div>
   </form>
 </div>
