@@ -1,9 +1,9 @@
 
       <div class="products-grid">
-        @for (aProduct of allProducts; track aProduct.id) {
+        @for (product of productsDataService.products(); track product.id) {
           <div class="product-card">
              <!-- initialize a Product and connect event listener --> 
-             <app-product-card [product]="aProduct" (addToCartEvent)="receiveAddToCart($event)"></app-product-card>            
+             <app-product-card [product]="product" (addToCartEvent)="receiveAddToCart($event)"></app-product-card>            
           </div>
         }
       </div>
