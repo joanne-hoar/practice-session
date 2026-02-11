@@ -1,7 +1,19 @@
 <div class="product-card">
+  @if (showLink) {
     <a [routerLink]="['/products', product.id]" class="product-link">
       <img [src]="'assets/products/' + product.image" [alt]="product.name" />
       <h3>{{ product.name }}</h3>
     </a>
+  } @else {
+    <img [src]="'assets/products/' + product.image" [alt]="product.name" />
+    <h3>{{ product.name }}</h3>
+  }
+  
+  @if (showDescription && product.description) {
+    <p class="description">{{ product.description }}</p>
+  }
+  
+  @if (showAddButton) {
     <button class="add-btn" (click)="onAddToCart()">Add to Cart</button>
+  }
 </div>

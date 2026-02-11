@@ -26,6 +26,15 @@
   color: #4a5d23;
 }
 
+.description {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  text-align: left;
+}
+
 .add-btn {
   padding: 0.5rem 1rem;
   border: none;

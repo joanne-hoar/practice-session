@@ -10,8 +10,12 @@ import { Product } from '../product';
 })
 
 export class ProductCard {
-
-  @Input() product!: Product; 
+  @Input() product!: Product;
+  
+  // Optional inputs for flexible display modes
+  @Input() showLink = true;          // Show link to detail page?
+  @Input() showAddButton = true;     // Show add to cart button?
+  @Input() showDescription = false;  // Show full description?
 
   @Output() addToCartEvent = new EventEmitter<number>();
 
