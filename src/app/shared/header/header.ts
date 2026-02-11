@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CartService } from '../../services/cart-service';
 
 @Component({
   selector: 'app-header',
@@ -9,4 +10,5 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class Header {
   @Input() title!: string;
+  cartService = inject(CartService);
 }

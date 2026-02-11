@@ -54,4 +54,34 @@ describe('CartService', () => {
     expect(service.items()[0]).toEqual(mockProduct1);
     expect(service.items()[1]).toEqual(mockProduct2);
   });
+
+  it('should compute item count correctly', () => {
+    expect(service.itemCount()).toBe(0);
+    
+    service.addToCart(mockProduct1);
+    expect(service.itemCount()).toBe(1);
+    
+    service.addToCart(mockProduct2);
+    expect(service.itemCount()).toBe(2);
+  });
+
+  it('should remove item from cart by index', () => {
+    service.addToCart(mockProduct1);
+    service.addToCart(mockProduct2);
+    
+    service.removeFromCart(0);
+    
+    expect(service.items().length).toBe(1);
+    expect(service.items()[0]).toEqual(mockProduct2);
+  });
+
+  it('should clear all items from cart', () => {
+    service.addToCart(mockProduct1);
+    service.addToCart(mockProduct2);
+    
+    service.clearCart();
+    
+    expect(service.items().length).toBe(0);
+    expect(service.itemCount()).toBe(0);
+  });
 });

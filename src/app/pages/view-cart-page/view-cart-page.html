@@ -1,0 +1,22 @@
+<div class="cart-page">
+  <h2>Shopping Cart</h2>
+  
+  @if (cartService.items().length === 0) {
+    <p class="empty-cart">Your cart is empty</p>
+  } @else {
+    <div class="cart-actions">
+      <p>Total items: {{ cartService.itemCount() }}</p>
+      <button class="danger" (click)="clearAll()">Clear Cart</button>
+    </div>
+    
+    <div class="cart-items">
+      @for (product of cartService.items(); track $index) {
+        <div class="cart-item">
+          <!-- Reuse ProductCard component for consistent display -->
+          <app-product-card [product]="product"></app-product-card>
+          <button class="secondary" (click)="removeItem($index)">Remove</button>
+        </div>
+      }
+    </div>
+  }
+</div>
