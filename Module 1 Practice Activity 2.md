@@ -22,7 +22,7 @@ In your practice-session project:
 - `ng generate interface product`
 - This will create a data structure to hold product information
 
-Add a properties to the interface:
+Add properties to the interface:
 ```typescript
 export interface Product {
     id: number;
@@ -46,12 +46,12 @@ export class ProductCard {
 // ...existing code...  
 ```
 
-Access interface properties in the product-card.html template. Display as text using iterpolation syntax like this {{}}:
+Access interface properties in the product-card.html template. Display as text using interpolation syntax like this {{}}:
 ```html
 <h3>{{ product.name }}</h3>
 ```
 
-You can add an image for your product under `public/assets` folder. Use square brackets for property binding like this []:
+You can add an image for your product under `public/assets/products` folder. Use square brackets for property binding like this []:
 ```html
 <img [src]="'assets/products/' + product.image" [alt]="product.name" />
 ```    
@@ -78,10 +78,13 @@ export class ProductList {
 
 Display the product card in the product-list.html template:
 ```html
-<app-product-card [product]="aProduct"></app-product-card>
+<div class="products-section">
+  <h2>Products</h2>
+  <app-product-card [product]="aProduct"></app-product-card>
+</div>
 ```
 
-For now, import the ProductList component into `app.ts` and display below the header component. We will setup routing in Practice Activiy 3. 
+For now, import the ProductList component into `app.ts` and display below the header component. We will setup routing in Practice Activity 3. 
 
 ### Step 6: Set Up `@Output` in Child Component
 
@@ -97,31 +100,36 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 // ...existing code...
 export class ProductCard {
   // ...existing code...
-  @Output() cartEvent = new EventEmitter<number>();
+  @Output() addToCartEvent = new EventEmitter<number>();
 
   // This method is invoked when the button is clicked
   onAddToCart() {
-    this.cartEvent.emit(this.product.id);
+    this.addToCartEvent.emit(this.product.id);
   }
 }
 ```
 
 ### Step 7: Listen for the Custom Event in Parent Component
 
-Example:
+In `product-list.ts`:
 ```typescript
 // ...existing code...
- export class ProductCard {
- // ...existing code...
- countItems = 0;
+export class ProductList {
+  // ...existing code...
+  countItems = 0;
 
   // This method is invoked when the child emits the event
   receiveAddToCart(id: number) {
     this.countItems += 1;
     alert("Add item "+ id + ", Items in cart: " + this.countItems);
   }
+}
 ```
 
+Connect the event listener in `product-list.html`:
+```html
+<app-product-card [product]="aProduct" (addToCartEvent)="receiveAddToCart($event)"></app-product-card>
+```
 
 This demonstrates how to compose a page from multiple reusable components, a key Angular skill.
 
