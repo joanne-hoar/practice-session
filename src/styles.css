@@ -7,8 +7,49 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f5f5dc;
+  background: #faf8f6;
   color: #2d5016;
+}
+
+/* Reusable page container */
+.page-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+/* Reusable card style */
+.card {
+  border: 2px solid #be7d67;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+/* Reusable info badge */
+.info-badge {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #e7cfc3 0%, #d4c4b8 100%);
+  border-radius: 8px;
+  border: 2px solid #be7d67;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Reusable page heading */
+.page-heading {
+  text-align: center;
+  color: #2d5016;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 /* Global link styles */
@@ -45,7 +86,7 @@ button, .btn {
 }
 
 button:hover, .btn:hover {
-  background: linear-gradient(145deg, #5d7a2f 0%, #3e6b1f 100%);
+  background: linear-gradient(145deg, #6d4c41 0%, #5d4037 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0,0,0,0.3);
   border-color: #8d6e63;

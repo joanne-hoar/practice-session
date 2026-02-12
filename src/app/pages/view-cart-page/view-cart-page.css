@@ -1,24 +1,9 @@
-.cart-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.cart-page h2 {
-  color: #2d5016;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-  margin-bottom: 1.5rem;
-}
-
 .empty-cart {
   text-align: center;
   font-size: 1.2rem;
   color: #8d6e63;
   margin: 3rem 0;
   padding: 2rem;
-  background: white;
-  border-radius: 8px;
-  border: 2px solid #e7cfc3;
 }
 
 .cart-actions {
@@ -27,10 +12,6 @@
   align-items: center;
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #e7cfc3 0%, #d4c4b8 100%);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border: 2px solid #be7d67;
 }
 
 .cart-actions p {
@@ -38,10 +19,7 @@
   font-weight: bold;
   font-size: 1.1rem;
   color: #2d5016;
-  text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
 }
-
-/* Clear button uses danger variant - no custom styles needed */
 
 .cart-items {
   display: grid;
@@ -53,20 +31,8 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  border: 2px solid #be7d67;
-  border-radius: 8px;
-  background: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-}
-
-.cart-item:hover {
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  transform: translateY(-2px);
 }
 
 .cart-item app-product-card {
   flex: 1;
 }
-
-/* Remove button uses secondary variant - no custom styles needed */
