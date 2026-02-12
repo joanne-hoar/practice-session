@@ -114,6 +114,12 @@ Generate your first component using CLI:
 
    Customize the header with some css style etc.
 
+**Key Concepts:**
+- Angular CLI generates project structure and components with `ng new` and `ng generate`
+- Standalone components (Angular 17+) don't require NgModules
+- Component structure: TypeScript class + HTML template + CSS styles
+- Component decorator defines metadata (selector, imports, templateUrl, styleUrl)
+
 ---
 
 **Next Steps:** Practice Activity 2 will cover creating more reusable components and `@Input`/`@Output` for component communication.

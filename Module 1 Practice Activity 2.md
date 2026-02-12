@@ -133,6 +133,13 @@ Connect the event listener in `product-list.html`:
 
 This demonstrates how to compose a page from multiple reusable components, a key Angular skill.
 
+**Key Concepts:**
+- `@Input()` decorator passes data from parent to child components
+- `@Output()` with EventEmitter sends events from child to parent components
+- Interfaces define reusable, type-safe data structures
+- Component composition creates modular, maintainable UIs
+- Property binding `[property]` sets input values, event binding `(event)` listens for outputs
+
 ---
 
 **Next Steps:** Proceed to Practice Activity 3 to learn about routing and iterating a list using `@for` control flow syntax.

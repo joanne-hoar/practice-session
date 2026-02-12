@@ -2,7 +2,7 @@
 
 ## Routing, Data Iteration, and Services
 
-### Learning Outcome
+### Learning Objective
 Demonstrate how to implement routing, display lists with modern Angular control flow, and manage data services in a single-page Angular application.
 
 ### Prerequisites
